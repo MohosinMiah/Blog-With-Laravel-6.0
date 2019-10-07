@@ -17,10 +17,9 @@
 							<input type="checkbox" id="drop" />
 							<ul class="menu">
 								<li><a href="{{ route('home') }}" class="nav-style">Home</a></li>
-								<li><a href="" class="active nav-style">Blog</a></li>
-                                <li><a href="{{ route('about') }}" class=" nav-style">About Us</a></li>
-
-								<li><a href="contact.html" class="nav-style">Contact Us</a></li>
+								<li><a href="{{ route('blog') }}" class="nav-style">Blog</a></li>
+                                <li><a href="{{ route('about') }}" class="nav-style">About Us</a></li>
+								<li><a href="{{ route('contact') }}" class="nav-style">Contact Us</a></li>
 								<li>
 									<a href="https://w3layouts.com/" target="_blank" class="nav-button">Get Started</a>
 								</li>

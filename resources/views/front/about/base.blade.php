@@ -1,7 +1,7 @@
 <!-- Include Header Part  -->
 @include('front/inc/header')
 
-<!-- Include Header All Part  -->
+<!-- Include Menu  Part  -->
 
 @include('front/inc/headerall')
 
