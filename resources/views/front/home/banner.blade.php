@@ -16,24 +16,10 @@
 							<label for="drop" class="toggle">Menu</label>
 							<input type="checkbox" id="drop" />
 							<ul class="menu">
-								<li><a href="index.html" class="active nav-style">Home</a></li>
+								<li><a href="{{ route('home') }}" class="nav-style">Home</a></li>
 								<li><a href="about.html" class="nav-style">About Us</a></li>
-								<li>
-									<!-- First Tier Drop Down -->
-									<label for="drop-2" class="toggle toogle-2 nav-style">Dropdown <span
-											class="fa fa-angle-down" aria-hidden="true"></span>
-									</label>
-									<a href="#" class="nav-style">Dropdown <span class="fa fa-angle-down"
-											aria-hidden="true"></span></a>
-									<input type="checkbox" id="drop-2" />
-									<ul>
-										<li><a href="blog1.html" class="drop-text">Creative Blog</a></li>
-										<li><a href="blog2.html" class="drop-text">Sidebar Right</a></li>
-										<li><a href="blog3.html" class="drop-text">Sidebar Left</a></li>
-										<li><a href="blog4.html" class="drop-text">Standard</a></li>
-										<li><a href="single.html" class="drop-text">Blog Details</a></li>
-									</ul>
-								</li>
+                                <li><a href="{{ route('about') }}" class="nav-style">About Us</a></li>
+
 								<li><a href="contact.html" class="nav-style">Contact Us</a></li>
 								<li><a href="https://w3layouts.com/" target="_blank" class="nav-button">
 										Get Started</a></li>
