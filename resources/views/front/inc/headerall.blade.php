@@ -20,9 +20,7 @@
 								<li><a href="{{ route('blog') }}" class="nav-style">Blog</a></li>
                                 <li><a href="{{ route('about') }}" class="nav-style">About Us</a></li>
 								<li><a href="{{ route('contact') }}" class="nav-style">Contact Us</a></li>
-								<li>
-									<a href="https://w3layouts.com/" target="_blank" class="nav-button">Get Started</a>
-								</li>
+
 							</ul>
 						</nav>
 					</div>

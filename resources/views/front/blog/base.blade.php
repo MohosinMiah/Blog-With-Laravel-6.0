@@ -17,12 +17,10 @@
 			</div>
 		</div>
 	</section>
-	<!-- //blog -->
-
+    <!-- //blog -->
 
     <!-- Include You May Like Posts Part  -->
     @include('front/inc/youmaylike')
-
 
 <!-- Include Footer Part  -->
 @include('front/inc/footer')

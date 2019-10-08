@@ -1,43 +1,20 @@
 <div class="col-lg-8 blog-left-content">
+        @foreach ($blogs as $blog)
+
     <div class="creatives-grid">
-        <a href="single.html">
-            <img src="images/b2.jpg" alt=" " class="img-fluid" />
+        <a href="/{{ $blog->title }}">
+            <img src="images/{{ $blog->image }}" alt=" " class="img-fluid" />
         </a>
         <div class="p-mask img-thumbnail">
-            <h4><a href="single.html">Heading here</a></h4>
-            <span class="let mt-3">Feb 20, 2019</span>
+            <h4><a href="/{{ $blog->title }}">{{ $blog->title }}</a></h4>
+            <span class="let mt-3">{{ $blog->created_at }}</span>
             <hr>
-            <p>Neque porro est Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor. no sea
-                takimata sanctus est Loremipsum.</p>
-            <a class="btn button-style-w3ls mt-4" href="single.html">Read More</a>
+            <p>{!! $blog->content !!}</p>
+            <a class="btn button-style-w3ls mt-4" href="/{{ $blog->title }}">Read More</a>
         </div>
     </div>
-    <div class="creatives-grid">
-        <a href="single.html">
-            <img src="images/b1.jpg" alt=" " class="img-fluid" />
-        </a>
-        <div class="p-mask img-thumbnail">
-            <h4><a href="single.html">Heading here</a></h4>
-            <span class="let mt-3">Feb 20, 2019</span>
-            <hr>
-            <p>Neque porro est Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor. no sea
-                takimata sanctus est Loremipsum.</p>
-            <a class="btn button-style-w3ls mt-4" href="single.html">Read More</a>
-        </div>
-    </div>
-    <div class="creatives-grid">
-        <a href="single.html">
-            <img src="images/b3.jpg" alt=" " class="img-fluid" />
-        </a>
-        <div class="p-mask img-thumbnail">
-            <h4><a href="single.html">Heading here</a></h4>
-            <span class="let mt-3">Feb 20, 2019</span>
-            <hr>
-            <p>Neque porro est Lorem ipsum dolor sit amet,sed diam nonumy eirmod tempor. no sea
-                takimata sanctus est Loremipsum.</p>
-            <a class="btn button-style-w3ls mt-4" href="single.html">Read More</a>
-        </div>
-    </div>
+
+    @endforeach
     <nav aria-label="Page navigation example">
         <ul class="pagination float-left mt-5">
             <li class="page-item">

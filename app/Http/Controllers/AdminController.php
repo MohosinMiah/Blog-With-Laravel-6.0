@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Blog;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::take(1)->get();
-        return view('front.blog.base',compact('blogs'));
+       return view('admin.layouts.app');
     }
 
     /**
@@ -42,10 +40,10 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\blog  $blog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(blog $blog)
+    public function show($id)
     {
         //
     }
@@ -53,10 +51,10 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\blog  $blog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(blog $blog)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +63,10 @@ class BlogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\blog  $blog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, blog $blog)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +74,10 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\blog  $blog
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(blog $blog)
+    public function destroy($id)
     {
         //
     }
