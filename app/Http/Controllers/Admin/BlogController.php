@@ -32,6 +32,9 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $postLists = Blog::all();
+
+        return view('admin/post/index',compact('postLists'));
     }
 
     /**
@@ -113,7 +116,9 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Blog::where('id', $id)->first();
+
+        return view('admin/post/view',compact('post'));
     }
 
     /**
@@ -124,7 +129,9 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Blog::where('id', $id)->first();
+
+        return view('admin/post/edit',compact('post'));
     }
 
     /**
@@ -134,9 +141,64 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+            /**
+         *  Data  Validation.....
+         */
+        $v = Validator::make($request->all(), [
+            'title' => 'required|max:200',
+            'cat_name' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'content' => 'required',
+        ]);
+
+        $image = $request->file('image');
+
+ /**
+         * Check File is uploaded or not  time()."_".
+         */
+        if ($image) {
+            $img_name = time()."_".$image->getClientOriginalName();
+
+
+        }
+        /**
+         * Check Data is Valid or Not
+         */
+        if ($v->fails()) {
+            \Session::flash('message', 'Fail To Update  Data.Please check error messages ....... ');
+            return redirect()->back()->withInput()->withErrors($v);;
+        } else {
+
+        $id = $request->id;
+
+        $blog = Blog::find($id);
+        if ($image) {
+            $blog->title = $request->title;
+        $blog->cat_name = $request->cat_name;
+        $blog->image = $img_name;
+        $blog->content = $request->content;
+        $blog->status = $request->status;
+
+        }else{
+            $blog->title = $request->title;
+            $blog->cat_name = $request->cat_name;
+            $blog->content = $request->content;
+            $blog->status = $request->status;
+        }
+
+        $blog->update();
+
+
+        }
+
+        if ($image) {
+            $destinationPathOne = public_path('images');
+            $image->move($destinationPathOne, $img_name);
+        }
+        \Session::flash('message', 'Data Update Successfully ....... ');
+        return redirect('/blog/editPost/'.$blog->id); 
     }
 
     /**
@@ -147,6 +209,11 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blog = Blog::find($id);
+
+         $blog->delete();
+
+         return redirect('/blog/list'); 
+
     }
 }

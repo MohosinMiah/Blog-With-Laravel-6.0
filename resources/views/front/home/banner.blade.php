@@ -7,7 +7,7 @@
 				<div class="header d-md-flex justify-content-between align-items-center py-3 pl-2">
 					<!-- logo -->
 					<div id="logo">
-						<h1><a href="index.html">Food Blog</a></h1>
+						<h1><a href="/">Food Blog</a></h1>
 					</div>
 					<!-- //logo -->
 					<!-- nav -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use Illuminate\Http\Request;
+use DB;
 
 class BlogController extends Controller
 {
@@ -14,8 +15,13 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::take(1)->get();
-        return view('front.blog.base',compact('blogs'));
+        $youmayLikes = DB::table('blogs')
+        // ->inRandomOrder()
+        ->limit(2)
+        ->get();
+
+        $blogs = Blog::where('status','public')->paginate(5);
+        return view('front.blog.base',compact('blogs','youmayLikes'));
     }
 
     /**
@@ -79,8 +85,30 @@ class BlogController extends Controller
      * @param  \App\blog  $blog
      * @return \Illuminate\Http\Response
      */
+    public function youmayLike()
+    {
+        $blogs = DB::table('blogs')
+
+        ->inRandomOrder()
+
+        ->limit(3)
+        ->get();
+
+        return $blogs;
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\blog  $blog
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(blog $blog)
     {
         //
     }
+
+
+    
 }

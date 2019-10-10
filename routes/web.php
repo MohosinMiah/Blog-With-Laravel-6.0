@@ -50,6 +50,7 @@ Route::get('/about','AboutController@index')->name('about');
 Route::get('/blog','BlogController@index')->name('blog');
 
 
+
 /*
 |--------------------------------------------------------------------------
 | ********************************     END ABOUT **************************
@@ -99,6 +100,19 @@ Route::get('/admin','AdminController@index')->name('admin');
 Route::get('admin/addPost','Admin\BlogController@create')->name('admin-post');
 
 Route::post('admin/addPost/save','Admin\BlogController@store')->name('admin_save_Post');
+
+Route::get('/blog/list','Admin\BlogController@index')->name('admin-post-list');
+
+Route::get('/blog/editPost/{id}','Admin\BlogController@edit')->name('admin-post-edit');
+
+Route::get('/blog/viewPost/{id}','Admin\BlogController@show')->name('admin-post-show');
+
+Route::get('/blog/deletePost/{id}','Admin\BlogController@destroy')->name('admin-post-delete');
+
+
+Route::post('/blog/updatePost','Admin\BlogController@update')->name('admin-post-update');
+
+
 
 
 /*

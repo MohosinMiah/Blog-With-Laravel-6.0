@@ -14,27 +14,13 @@
         </div>
     </div>
 
+    
     @endforeach
     <nav aria-label="Page navigation example">
-        <ul class="pagination float-left mt-5">
-            <li class="page-item">
-                <a class="page-link" href="#">Previous</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="blog1.html">1</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="blog2.html">2</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="blog3.html">3</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="blog4.html">4</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="blog3.html">Next</a>
-            </li>
-        </ul>
+            {{ $blogs->links() }}
+
     </nav>
+
+
+
 </div>
